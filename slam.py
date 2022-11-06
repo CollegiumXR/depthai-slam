@@ -12,8 +12,11 @@ import open3d as o3d
 display = Display()
 extractor = Extractor()
 
+COUNT = 0
+
 
 def process(img):
+	global COUNT
 	pts1, pts2, kpts, matches = extractor.extract_keypoints(img=img)
 
 	# converto to 3 dimensional
@@ -50,7 +53,8 @@ def process(img):
 		tripoints3d = triangulation(points1_norm, points2_norm, P1, P2)
 
 	else:
-		print("Wrong dimension of array")
+		print(f"Wrong dimension of array {COUNT}")
 		pass
+	COUNT += 1
 
 	return img, tripoints3d, kpts, matches

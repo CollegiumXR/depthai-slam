@@ -75,6 +75,4 @@ with dai.Device() as device:
 		if cv2.waitKey(1) == 27:
 			break
 
-
-
 	cv2.destroyAllWindows()
